@@ -36,7 +36,7 @@ typedef NS_ENUM(NSInteger, EFHandleType) {
 @property (nonatomic) BOOL snapToLabels;
 
 
-
+- (void)updateCurrentValue:(float)currentValue;
 -(void)setInnerMarkingLabels:(NSArray*)labels;
 
 @end

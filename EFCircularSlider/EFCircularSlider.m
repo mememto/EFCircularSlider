@@ -80,7 +80,7 @@
     return self.frame.size.height/2 - _lineWidth/2 - ([self circleDiameter]-_lineWidth) - _lineRadiusDisplacement;
 }
 
-- (void)setCurrentValue:(float)currentValue {
+- (void)updateCurrentValue:(float)currentValue {
     _currentValue=currentValue;
     
     if(_currentValue>_maximumValue) _currentValue=_maximumValue;
@@ -89,7 +89,7 @@
     angle = [self angleFromValue];
     [self setNeedsLayout];
     [self setNeedsDisplay];
-    [self sendActionsForControlEvents:UIControlEventValueChanged];
+    //[self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
 #pragma mark - drawing methods
@@ -195,7 +195,7 @@
             
             CGSize labelSize=CGSizeMake([self widthOfString:label withFont:_labelFont], [self heightOfString:label withFont:_labelFont]);
             CGPoint closestPointOnCircleToLabel = [self pointFromAngle:degreesForLabel withObjectSize:labelSize];
-
+            
             CGRect labelLocation = CGRectMake(closestPointOnCircleToLabel.x, closestPointOnCircleToLabel.y, labelSize.width, labelSize.height);
             
             CGPoint centerPoint = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
